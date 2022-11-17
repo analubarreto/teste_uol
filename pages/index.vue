@@ -1,5 +1,5 @@
 <template>
-  <el-container class="page">
+  <main class="page">
     <el-row :gutter="10">
       <el-col :span="24">
         <h1 class="page__title">Bem Vindo</h1>
@@ -14,7 +14,7 @@
         <div class="grid-content bg-purple-light"></div>
       </el-col>
     </el-row>
-  </el-container>
+  </main>
 </template>
 
 <script>

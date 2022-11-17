@@ -4,6 +4,10 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: 'ContentCard'
+}
+</script>
 
 <style scoped lang="scss"></style>
