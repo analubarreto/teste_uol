@@ -27,7 +27,16 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
+    '@nuxtjs/apollo'
   ],
+
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'https://us-central1-challenge-334613.cloudfunctions.net/api/graphql'
+      }
+    }
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [],
