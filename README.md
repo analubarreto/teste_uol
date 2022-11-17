@@ -1,5 +1,10 @@
 # prova_uol
 
+## Detalhes da prova
+
+Github: https://github.com/skore-io/challenge/blob/main/frontend.md
+API GraphQL: https://us-central1-challenge-334613.cloudfunctions.net/api/graphql
+
 ## Build Setup
 
 ```bash
