@@ -2,7 +2,7 @@
 
 ## Detalhes da prova
 
-Github: https://github.com/skore-io/challenge/blob/main/frontend.md
+Github: https://github.com/skore-io/challenge/blob/main/frontend.md <br />
 API GraphQL: https://us-central1-challenge-334613.cloudfunctions.net/api/graphql
 
 ## Build Setup
