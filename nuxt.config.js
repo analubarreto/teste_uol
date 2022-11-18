@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'prova_uol',
+    title: 'desafio_uol',
     htmlAttrs: {
       lang: 'en',
     },
@@ -36,8 +36,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/apollo',
     '@nuxtjs/style-resources',
-    '@nuxtjs/composition-api/module',
-    '@pinia/nuxt',
+    '@nuxtjs/composition-api/module'
   ],
 
   apollo: {
