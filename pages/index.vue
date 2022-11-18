@@ -4,22 +4,35 @@
       <el-col :span="24">
         <h1 class="page__title">Bem Vindo</h1>
       </el-col>
-      <el-col :xs="24" :sm="24" :md="8" :lg="9" :xl="8">
-        <div class="grid-content bg-purple-light"></div>
-      </el-col>
-      <el-col :xs="24" :sm="24" :md="8" :lg="9" :xl="8">
-        <div class="grid-content bg-purple"></div>
-      </el-col>
-      <el-col :xs="24" :sm="24" :md="4" :lg="3" :xl="8">
-        <div class="grid-content bg-purple-light"></div>
+      <el-col v-for="content in contents" :key="content.id" :xs="24" :sm="24" :md="8" :lg="9" :xl="8" >
+        <ContentCard :content="content" />
       </el-col>
     </el-row>
   </main>
 </template>
 
 <script>
+import gql from 'graphql-tag';
+import ContentCard from '~/components/ContentCard.vue';
+
 export default {
   name: 'IndexPage',
+  comments: {
+    ContentCard
+  },
+  apollo: {
+    contents: gql `query {
+        contents {
+        id,
+        embeddable,
+        allow_download,
+        type,
+        updated_at,
+        created_at,
+        title
+      }
+    }`
+  }
 }
 </script>
 
