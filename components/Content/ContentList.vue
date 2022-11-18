@@ -1,8 +1,5 @@
 <template>
   <el-row :gutter="10">
-    <el-col class="col" :span="24">
-      <h1 class="page__title">Bem Vindo</h1>
-    </el-col>
     <el-col v-for="content in contents" :key="content.id" class="col" :xs="24" :sm="12" :md="8" :lg="6" :xl="6">
       <ContentCard :content="content" />
     </el-col>

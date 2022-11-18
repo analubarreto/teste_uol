@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'desafio_uol',
+    title: 'Desafio UOL',
     htmlAttrs: {
       lang: 'en',
     },
@@ -11,11 +11,16 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: '~static/assets/fontawesome/css/fontawesome.css' },
+      { rel: 'stylesheet', href: '~static/assets/fontawesome/css/brands.css' },
+      { rel: 'stylesheet', href: '~static/assets/fontawesome/css/solid.css' },
+    ],
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'element-ui/lib/theme-chalk/index.css',
+    'element-ui/lib/theme-chalk/index.css'
   ],
 
   styleResources: {
@@ -25,7 +30,9 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/element-ui'],
+  plugins: [
+    '@/plugins/element-ui'
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

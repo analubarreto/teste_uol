@@ -1,5 +1,6 @@
 <template>
   <main class="page">
+    <h1 class="page__title">Cursos</h1>
     <ContentList />
   </main>
 </template>

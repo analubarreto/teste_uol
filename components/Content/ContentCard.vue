@@ -1,15 +1,30 @@
 <template>
-  <main class="content-card">
-    <div></div>
-    <img class="content-card__image" src="https://picsum.photos/300/100" alt="" />
-    <section class="content-card__info">
-      <p class="content-card__info--title">{{ cardTitle }}</p>
-      <div class="content-card__info--dates">
-        <p>{{ createdAt }}</p>
-        <p>{{ updatedAt }}</p>
+  <NuxtLink class="card-wrap" :to="`/${content.id}`">
+    <main class="content-card">
+      <div class="content-card__image-overlay">
+        <p>Play</p>
+        <i class="fa-solid fa-play"></i>
       </div>
-    </section>
-  </main>
+      <img class="content-card__image" src="https://picsum.photos/300/100" alt="" />
+      <section class="content-card__info">
+        <p class="content-card__info--title">{{ cardTitle }}</p>
+        <div class="content-card__info--dates">
+          <p>{{ createdAt }}</p>
+          <p>{{ updatedAt }}</p>
+        </div>
+        <div class="content-card__info--extra">
+          <p
+            :class="content.type === 'document' ? 'content-type-true' : ''">Doc</p>
+          <p
+            :class="content.type === 'image' ? 'content-type-true' : ''">Imagem</p>
+          <p
+            :class="content.type === 'video' ? 'content-type-true' : ''">Vídeo</p>
+          <p
+            :class="content.type === 'link' ? 'content-type-true' : ''">Link</p>
+        </div>
+      </section>
+    </main>
+  </NuxtLink>
 </template>
 
 <script>
@@ -46,26 +61,51 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.content-type-true {
+  color: rgb(121, 215, 33);
+}
+.card-wrap {
+  text-decoration: none;
+  &:link, &:active, &:visited, &:hover {
+    color: #2d2d2d;
+  }
+}
 .content-card {
   width: 18.75rem;
   position: relative;
   &__image {
     border-radius: 1rem;
   }
+  &__image-overlay {
+    border-radius: 1rem;
+    background-color: rgba(161, 67, 255, 0.639);
+    position: absolute;
+    width: 100%;
+    height: 6.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   &__info {
-    margin-top: -1rem;
-    background-color: rgb(220, 131, 255);
+    position: relative;
+    margin-top: -1.5rem;
+    background-color: #FFFFFF;
     border-radius: 1rem;
     padding: 1rem;
     box-sizing: border-box;
     font-family: 'Rubik', sans-serif;
-    z-index: 2;
     width: 17.5rem;
     margin-right: auto;
     margin-left: auto;
+
+    &--extra {
+      display: flex;
+      justify-content: space-between;
+      font-size: .675rem;
+    }
     &--title {
       font-weight: 600;
-      color: rgb(255, 255, 255);
+      color: #2d2d2d;
     }
     &--dates {
       display: flex;
