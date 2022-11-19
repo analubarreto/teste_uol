@@ -14,8 +14,8 @@
           </el-row>
         </el-col>
         <el-col v-if="!isLinkFile" :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-          <el-button type="primary" icon="el-icon-download" :disabled="downloadButtonDisabled">Download</el-button>
-          <el-button type="primary" icon="el-icon-link" :disabled="embedButtonDisabled">Embed</el-button>
+          <el-button icon="el-icon-download" :disabled="downloadButtonDisabled" type="primary" @click="successDownload">Download</el-button>
+          <el-button type="primary" icon="el-icon-link" :disabled="embedButtonDisabled" @click="successCopy">Embed</el-button>
         </el-col>
       </el-row>
       <el-divider></el-divider>
@@ -115,8 +115,19 @@ export default {
       return this.getContent.type === 'text'
     },
   },
-  created() {
-
+  methods: {
+    successDownload() {
+      this.$message({
+        message: 'Download feito com sucesso!',
+        type: 'success'
+      });
+    },
+    successCopy() {
+      this.$message({
+        message: 'Link copiado com sucesso!',
+        type: 'success'
+      });
+    }
   }
 }
 </script>
