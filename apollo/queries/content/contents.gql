@@ -1,0 +1,11 @@
+query {
+  contents {
+    id
+    embeddable
+    allow_download
+    type
+    updated_at
+    created_at
+    title
+  }
+}

@@ -7,25 +7,22 @@
 </template>
 
 <script>
-import gql from 'graphql-tag';
+// import gql from 'graphql-tag';
 import ContentCard from './ContentCard.vue';
 export default {
   name: 'ContentList',
   components: {
     ContentCard
   },
-  apollo: {
-    contents: gql`query {
-        contents {
-        id,
-        embeddable,
-        allow_download,
-        type,
-        updated_at,
-        created_at,
-        title
+  props: {
+    contents: {
+      type: Object,
+      default: () => {
+        return {
+          content: {}
+        }
       }
-    }`
+    }
   }
 }
 </script>

@@ -1,0 +1,11 @@
+query Contents($id: ID) {
+  getContent(id: $id) {
+    id
+    embeddable
+    allow_download
+    type
+    updated_at
+    created_at
+    title
+  }
+}

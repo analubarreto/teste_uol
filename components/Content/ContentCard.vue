@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink class="card-wrap" :to="`/${content.id}`">
+  <NuxtLink class="card-wrap" :to="`/contents/${content.id}`">
     <main class="content-card">
       <div class="content-card__image-overlay">
         <p>Play</p>
