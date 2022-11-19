@@ -2,8 +2,7 @@
   <NuxtLink class="card-wrap" :to="`/contents/${content.id}`">
     <main class="content-card">
       <div class="content-card__image-overlay">
-        <p>Play</p>
-        <fa :icon="['fas', 'play']" />
+        <fa v-if="content.type === 'video'" :icon="['fas', 'play']" />
       </div>
       <img class="content-card__image" src="https://picsum.photos/300/100" alt="" />
       <section class="content-card__info">
@@ -13,14 +12,14 @@
           <p>{{ updatedAt }}</p>
         </div>
         <div class="content-card__info--extra">
-          <p
-            :class="content.type === 'document' ? 'content-type-true' : ''">Doc</p>
-          <p
-            :class="content.type === 'image' ? 'content-type-true' : ''">Imagem</p>
-          <p
-            :class="content.type === 'video' ? 'content-type-true' : ''">Vídeo</p>
-          <p
-            :class="content.type === 'link' ? 'content-type-true' : ''">Link</p>
+          <CardIcon
+            v-for="icon in footerIcons"
+            :key="icon.id"
+            :tooltip-content="icon.tooltipContent"
+            :content-type="icon.contentType"
+            :icon="icon.icon"
+            :content="content"
+          />
         </div>
       </section>
     </main>
@@ -28,8 +27,13 @@
 </template>
 
 <script>
+import CardIcon from '~/components/Content/CardIcon.vue';
+
 export default {
   name: 'ContentCard',
+  components: {
+    CardIcon
+  },
   props: {
     content: {
       type: Object,
@@ -38,6 +42,42 @@ export default {
           content: {}
         }
       }
+    }
+  },
+  data() {
+    return {
+      footerIcons: [
+        {
+          id: 1,
+          tooltipContent: 'Documento',
+          contentType: 'document',
+          icon: 'file'
+        },
+        {
+          id: 2,
+          tooltipContent: 'Imagem',
+          contentType: 'image',
+          icon: 'image'
+        },
+        {
+          id: 3,
+          tooltipContent: 'Vídeo',
+          contentType: 'video',
+          icon: 'video'
+        },
+        {
+          id: 4,
+          tooltipContent: 'Link',
+          contentType: 'link',
+          icon: 'link'
+        },
+        {
+          id: 5,
+          tooltipContent: 'Texto',
+          contentType: 'text',
+          icon: 'file-lines'
+        },
+      ]
     }
   },
   computed: {
@@ -61,9 +101,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.content-type-true {
-  color: rgb(121, 215, 33);
-}
 .card-wrap {
   text-decoration: none;
   &:link, &:active, &:visited, &:hover {
@@ -85,6 +122,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #FFFFFF;
   }
   &__info {
     position: relative;
