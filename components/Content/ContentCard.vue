@@ -2,7 +2,7 @@
   <NuxtLink class="card-wrap" :to="`/contents/${content.id}`">
     <main class="content-card">
       <div class="content-card__image-overlay">
-        <fa v-if="content.type === 'video'" :icon="['fas', 'play']" />
+        <i v-if="content.type === 'video'" class="el-icon-video-play content-card__image-overlay--icon"></i>
       </div>
       <img class="content-card__image" src="https://picsum.photos/300/100" alt="" />
       <section class="content-card__info">
@@ -52,31 +52,31 @@ export default {
           id: 1,
           tooltipContent: 'Documento',
           contentType: 'document',
-          icon: 'file'
+          icon: 'el-icon-document'
         },
         {
           id: 2,
           tooltipContent: 'Imagem',
           contentType: 'image',
-          icon: 'image'
+          icon: 'el-icon-picture-outline'
         },
         {
           id: 3,
           tooltipContent: 'Vídeo',
           contentType: 'video',
-          icon: 'video'
+          icon: 'el-icon-video-camera-solid'
         },
         {
           id: 4,
           tooltipContent: 'Link',
           contentType: 'link',
-          icon: 'link'
+          icon: 'el-icon-link'
         },
         {
           id: 5,
           tooltipContent: 'Texto',
           contentType: 'text',
-          icon: 'file-lines'
+          icon: 'el-icon-reading'
         },
       ]
     }
@@ -118,6 +118,9 @@ export default {
     align-items: center;
     justify-content: center;
     color: #FFFFFF;
+    &--icon {
+      font-size: 2rem;
+    }
   }
   &__info {
     position: relative;

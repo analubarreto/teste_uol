@@ -16,8 +16,6 @@
   "dependencies": {
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/composition-api": "^0.33.1",
-    "@nuxtjs/date-fns": "^1.5.0",
-    "@nuxtjs/markdownit": "^2.0.0",
     "core-js": "^3.25.3",
     "element-ui": "^2.15.10",
     "graphql-tag": "^2.12.6",
@@ -28,8 +26,6 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.19.1",
-    "@fortawesome/free-brands-svg-icons": "^6.2.1",
-    "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@nuxtjs/eslint-config": "^11.0.0",
     "@nuxtjs/eslint-module": "^3.1.0",
     "@nuxtjs/fontawesome": "^1.1.2",

@@ -40,25 +40,8 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/apollo',
     '@nuxtjs/style-resources',
-    '@nuxtjs/composition-api/module',
-    '@nuxtjs/fontawesome',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/composition-api/module'
   ],
-  markdownit: {
-    preset: 'default',
-    linkify: true,
-    breaks: true,
-    injected: true
-  },
-  fontawesome: {
-     component: 'Fa',
-     suffix: false,
-     icons: {
-       solid: true,
-       brands: true,
-     },
- },
-
   apollo: {
     clientConfigs: {
       default: {

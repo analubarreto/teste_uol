@@ -1,6 +1,6 @@
 <template>
   <el-tooltip effect="dark" :content="tooltipContent" placement="bottom">
-    <fa :class="iconStyle" :icon="['fas', icon]" />
+    <i :class="`${icon} ${iconStyle}`"></i>
   </el-tooltip>
 </template>
 
