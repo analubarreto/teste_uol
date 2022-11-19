@@ -42,7 +42,14 @@ export default {
     '@nuxtjs/style-resources',
     '@nuxtjs/composition-api/module',
     '@nuxtjs/fontawesome',
+    '@nuxtjs/markdownit'
   ],
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    injected: true
+  },
   fontawesome: {
      component: 'Fa',
      suffix: false,
