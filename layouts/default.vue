@@ -1,6 +1,6 @@
 <template>
   <div class="page-wrapper">
-    <PageHeader :header-text="routeName" />
+    <PageHeader v-if="routeName !== 'index'" />
     <div class="page">
       <Nuxt />
     </div>
@@ -28,6 +28,6 @@ export default {
   @include page-style;
 }
 .page {
-  padding: 1rem;
+  padding: 1.5rem;
 }
 </style>

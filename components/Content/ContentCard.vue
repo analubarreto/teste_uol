@@ -27,7 +27,8 @@
 </template>
 
 <script>
-import CardIcon from '~/components/Content/CardIcon.vue';
+import CardIcon from '~/components/Content/TooltipIcon.vue';
+import formatDate from '~/helpers/date-helpers/formatDate.js';
 
 export default {
   name: 'ContentCard',
@@ -82,21 +83,15 @@ export default {
   },
   computed: {
     cardTitle() {
-      return this.content.title.length >= 25 ? `${this.content.title.slice(0, 25)}...` : this.content.title
+      return this.content.title && this.content.title.length >= 25 ? `${this.content.title.slice(0, 25)}...` : this.content.title
     },
     createdAt() {
-      return this.formatDate(this.content.created_at);
+      return formatDate(this.content.created_at);
     },
     updatedAt() {
-      return this.formatDate(this.content.updated_at);
+      return formatDate(this.content.updated_at);
     }
   },
-  methods: {
-    formatDate(date) {
-      const createDate = new Date(date);
-      return `${createDate.getDate()}/${createDate.getMonth()}/${createDate.getFullYear()}`
-    }
-  }
 }
 </script>
 

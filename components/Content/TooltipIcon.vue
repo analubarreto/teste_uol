@@ -1,20 +1,22 @@
 <template>
   <el-tooltip effect="dark" :content="tooltipContent" placement="bottom">
-    <fa :class="content.type === contentType ? 'content-type-true' : 'content-type'" :icon="['fas', icon]" />
+    <fa :class="iconStyle" :icon="['fas', icon]" />
   </el-tooltip>
 </template>
 
 <script>
 export default {
-  name: 'CardIcon',
+  name: 'TooltipIcon',
   props: {
     content: {
-      type: Object,
+      type: Array,
       default: () => {
+        // eslint-disable-next-line vue/require-valid-default-prop
         return {
-          content: {}
+          content: []
         }
-      }
+      },
+      required: false
     },
     tooltipContent: {
       type: String,
@@ -33,6 +35,11 @@ export default {
       default: () => {
         return ''
       }
+    }
+  },
+  computed: {
+    iconStyle() {
+      return this.content.type === this.contentType ? 'content-type-true' : 'content-type'
     }
   }
 }

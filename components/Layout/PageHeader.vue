@@ -1,5 +1,5 @@
 <template>
-  <el-page-header :content="headerText" @back="goBack">
+  <el-page-header @back="goBack">
   </el-page-header>
 </template>
 
