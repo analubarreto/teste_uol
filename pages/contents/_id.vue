@@ -72,6 +72,11 @@ export default {
   comments: {
     Icon
   },
+  data() {
+    return {
+      getContent: {}
+    }
+  },
   apollo: {
     getContent: {
       prefetch: true,
@@ -109,6 +114,9 @@ export default {
     isTextFile() {
       return this.getContent.type === 'text'
     },
+  },
+  created() {
+
   }
 }
 </script>
