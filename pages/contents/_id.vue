@@ -13,7 +13,7 @@
             </el-col>
           </el-row>
         </el-col>
-        <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
+        <el-col v-if="!isLinkFile" :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
           <el-button type="primary" icon="el-icon-download" :disabled="downloadButtonDisabled">Download</el-button>
           <el-button type="primary" icon="el-icon-link" :disabled="embedButtonDisabled">Embed</el-button>
         </el-col>
@@ -21,15 +21,19 @@
       <el-divider></el-divider>
     </header>
     <section class="content-page__content">
-    <iframe v-if="isVideoFile" class="content-page__content--video" src="https://www.youtube.com/embed/YBMq5c2ssY0/">
-    </iframe>
-    <el-image
-      v-else
-      class="content-page__content--image"
-      :src="pageImage"
-      :alt="getContent.title"
-      fit="fill"></el-image>
-
+      <iframe v-if="isVideoFile" class="content-page__content--video" src="https://www.youtube.com/embed/YBMq5c2ssY0/">
+      </iframe>
+      <el-image
+        v-else
+        class="content-page__content--image"
+        :src="pageImage"
+        :alt="getContent.title"
+        fit="fill"></el-image>
+      <div>
+        <p v-if="isLinkFile">Link para arquivo:
+          <a class="content-page__content--link" href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank">Lei da LGPD</a>
+        </p>
+      </div>
     </section>
   </main>
 </template>
@@ -71,7 +75,16 @@ export default {
     },
     isVideoFile() {
       return this.getContent.type === 'video'
-    }
+    },
+    isLinkFile() {
+      return this.getContent.type === 'link'
+    },
+    isDocumentFile() {
+      return this.getContent.type === 'document'
+    },
+    isTextFile() {
+      return this.getContent.type === 'text'
+    },
   }
 }
 </script>
@@ -107,6 +120,12 @@ export default {
     }
     &--image {
       border-radius: 1rem;
+    }
+    &--link {
+      &:link, &:visited, &:hover, &:active {
+        text-decoration: none;
+        color: $purple;
+      }
     }
   }
 }
