@@ -13,9 +13,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: '~static/assets/fontawesome/css/fontawesome.css' },
-      { rel: 'stylesheet', href: '~static/assets/fontawesome/css/brands.css' },
-      { rel: 'stylesheet', href: '~static/assets/fontawesome/css/solid.css' },
     ],
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -43,8 +40,17 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/apollo',
     '@nuxtjs/style-resources',
-    '@nuxtjs/composition-api/module'
+    '@nuxtjs/composition-api/module',
+    '@nuxtjs/fontawesome',
   ],
+  fontawesome: {
+     component: 'Fa',
+     suffix: false,
+     icons: {
+       solid: true,
+       brands: true,
+     },
+ },
 
   apollo: {
     clientConfigs: {

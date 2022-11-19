@@ -1,8 +1,8 @@
 <template>
-  <div class="page">
+  <div class="page-wrapper">
     <PageHeader :header-text="routeName" />
-    <div>
-
+    <div class="page">
+      <Nuxt />
     </div>
   </div>
 </template>
@@ -24,7 +24,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.page {
+.page-wrapper {
   @include page-style;
+}
+.page {
+  padding: 1rem;
 }
 </style>

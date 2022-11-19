@@ -3,7 +3,7 @@
     <main class="content-card">
       <div class="content-card__image-overlay">
         <p>Play</p>
-        <i class="fa-solid fa-play"></i>
+        <fa :icon="['fas', 'play']" />
       </div>
       <img class="content-card__image" src="https://picsum.photos/300/100" alt="" />
       <section class="content-card__info">

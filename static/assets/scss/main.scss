@@ -1,3 +1,7 @@
 @import './_css-reset.scss';
 @import  './_custom-variables.scss';
 @import  './_mixins.scss';
+
+* {
+  font-family: $defaultFont;
+}
