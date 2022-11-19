@@ -43,20 +43,12 @@
         frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true"
         webkitallowfullscreen="true"></iframe>
       <!-- Text -->
-      <div v-if="isTextFile">
-        <pre class="content-page__content--text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-            aliqua. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Elementum pulvinar etiam non
-            quam. Vitae sapien pellentesque habitant morbi tristique senectus et. Hac habitasse platea dictumst quisque. Quam
-            viverra orci sagittis eu volutpat odio. Eu feugiat pretium nibh ipsum consequat nisl vel.
+      <div v-if="isTextFile" class="content-page__content--text-wrap">
+        <p class="content-page__content--text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Elementum pulvinar etiam non quam. Vitae sapien pellentesque habitant morbi tristique senectus et. Hac habitasse platea dictumst quisque. Quam viverra orci sagittis eu volutpat odio. Eu feugiat pretium nibh ipsum consequat nisl vel.
 
-            Neque volutpat ac tincidunt
-            vitae. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Placerat vestibulum lectus mauris ultrices eros. Eu
-            volutpat odio facilisis mauris sit amet massa vitae tortor. Elit at imperdiet dui accumsan sit amet nulla facilisi
-            morbi. Enim nec dui nunc mattis enim ut tellus. Nec ullamcorper sit amet risus nullam eget felis eget nunc. Ultrices
-            neque ornare aenean euismod elementum nisi. Elementum curabitur vitae nunc sed. Non enim praesent elementum facilisis
-            leo vel. Aenean et tortor at risus viverra adipiscing at in tellus.
-        </pre>
+            Neque volutpat ac tincidunt vitae. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Placerat vestibulum lectus mauris ultrices eros. Eu volutpat odio facilisis mauris sit amet massa vitae tortor. Elit at imperdiet dui accumsan sit amet nulla facilisi morbi. Enim nec dui nunc mattis enim ut tellus. Nec ullamcorper sit amet risus nullam eget felis eget nunc. Ultrices neque ornare aenean euismod elementum nisi. Elementum curabitur vitae nunc sed. Non enim praesent elementum facilisis leo vel. Aenean et tortor at risus viverra adipiscing at in tellus.
+        </p>
       </div>
     </section>
   </main>
@@ -176,14 +168,10 @@ export default {
     &--text {
       display: block;
       font-family: $defaultFont;
-      width: 90%;
-      @include xl {
-          width: 75%;
-        }
-
-        @include lg {
-          width: 75%;
-        }
+      white-space: pre-line;
+    }
+    &--text-wrap {
+      width: 100%;
     }
   }
 }

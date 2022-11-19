@@ -6,7 +6,7 @@ function factory() {
 }
 
 describe('ContentCard', () => {
-  test('is a Vue instance', () => {
+  test('renders content from the API', () => {
     const wrapper = factory()
     expect(wrapper.vm).toBeTruthy()
   })
