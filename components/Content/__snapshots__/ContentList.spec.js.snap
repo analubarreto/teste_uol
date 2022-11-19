@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentList gets data from the api 1`] = `
+<el-row
+  gutter="10"
+>
+  <el-col
+    class="col"
+    lg="6"
+    md="8"
+    sm="12"
+    xl="6"
+    xs="24"
+  >
+    <nuxtlink
+      class="card-wrap"
+      id="content-card"
+      to="/contents/undefined"
+    >
+      <main
+        class="content-card"
+      >
+        <div
+          class="content-card__image-overlay"
+        >
+          <!---->
+        </div>
+         
+        <img
+          alt=""
+          class="content-card__image"
+          src="https://picsum.photos/300/100"
+        />
+         
+        <section
+          class="content-card__info"
+        >
+          <p
+            class="content-card__info--title"
+          >
+            
+          </p>
+           
+          <div
+            class="content-card__info--dates"
+          >
+            <p>
+              NaN/NaN/NaN
+            </p>
+             
+            <p>
+              NaN/NaN/NaN
+            </p>
+          </div>
+           
+          <div
+            class="content-card__info--extra"
+          >
+            <el-tooltip
+              content="Documento"
+              effect="dark"
+              placement="bottom"
+            >
+              <i
+                class="el-icon-document content-type"
+              />
+            </el-tooltip>
+            <el-tooltip
+              content="Imagem"
+              effect="dark"
+              placement="bottom"
+            >
+              <i
+                class="el-icon-picture-outline content-type"
+              />
+            </el-tooltip>
+            <el-tooltip
+              content="Vídeo"
+              effect="dark"
+              placement="bottom"
+            >
+              <i
+                class="el-icon-video-camera-solid content-type"
+              />
+            </el-tooltip>
+            <el-tooltip
+              content="Link"
+              effect="dark"
+              placement="bottom"
+            >
+              <i
+                class="el-icon-link content-type"
+              />
+            </el-tooltip>
+            <el-tooltip
+              content="Texto"
+              effect="dark"
+              placement="bottom"
+            >
+              <i
+                class="el-icon-reading content-type"
+              />
+            </el-tooltip>
+          </div>
+        </section>
+      </main>
+    </nuxtlink>
+  </el-col>
+</el-row>
+`;

@@ -1,13 +1,22 @@
 import { mount } from '@vue/test-utils';
 import ContentList from './ContentList.vue';
 
-function factory() {
-  return mount(ContentList);
-}
-
 describe('ContentList', () => {
-  test('is a Vue instance', () => {
-    const wrapper = factory()
-    expect(wrapper.vm).toBeTruthy()
+  test('gets data from the api', () => {
+    const wrapper = mount(ContentList);
+    wrapper.setData({
+      contents: [
+        {
+          id: 'some-id',
+          embeddable: true,
+          allow_download: false,
+          type: 'document',
+          updated_at: '1638383143749',
+          created_at: '1638383143749',
+          title: 'Some title',
+        }
+      ]
+    })
+    expect(wrapper.element).toMatchSnapshot()
   })
 })

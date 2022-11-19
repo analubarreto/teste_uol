@@ -1,13 +1,28 @@
 import { mount } from '@vue/test-utils';
 import ContentCard from './ContentCard.vue';
 
-function factory() {
-  return mount(ContentCard);
-}
-
 describe('ContentCard', () => {
-  test('renders content from the API', () => {
-    const wrapper = factory()
-    expect(wrapper.vm).toBeTruthy()
+  test('goes to correct route after clicking', async () => {
+    const mockRoute = {
+      params: {
+        id: 1
+      }
+    }
+    const mockRouter = {
+      push: jest.fn()
+    }
+    const wrapper = mount(ContentCard, {
+      props: {},
+      global: {
+        mocks: {
+          $route: mockRoute,
+          $router: mockRouter
+        }
+      }
+    })
+    await wrapper.trigger('click');
+
+    expect(mockRouter.push).toHaveBeenCalledTimes(1);
+    expect(mockRouter.push).toHaveBeenCalledWith('/contents/1');
   })
 })
