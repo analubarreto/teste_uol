@@ -21,11 +21,15 @@
       <el-divider></el-divider>
     </header>
     <section class="content-page__content">
+    <iframe v-if="isVideoFile" class="content-page__content--video" src="https://www.youtube.com/embed/YBMq5c2ssY0/">
+    </iframe>
     <el-image
+      v-else
       class="content-page__content--image"
       :src="pageImage"
       :alt="getContent.title"
       fit="fill"></el-image>
+
     </section>
   </main>
 </template>
@@ -65,18 +69,44 @@ export default {
     embedButtonDisabled() {
       return this.getContent.embeddable
     },
+    isVideoFile() {
+      return this.getContent.type === 'video'
+    }
   }
 }
 </script>
 
 <style scoped lang="scss">
 .content-page {
+  position: relative;
   &__content {
     margin-right: auto;
     margin-left: auto;
-    width: 75%;
+    width: 100%;
+    @include xl {
+      width: 75%;
+    }
+    @include lg {
+      width: 75%;
+    }
+    &--video {
+      border-radius: 1rem;
+      width: 100%;
+      height: 25vh;
+      @include xl {
+        width: 80%;
+        height: 75vh;
+      }
+      @include lg {
+        width: 80%;
+        height: 75vh;
+      }
+      @include sm {
+        width: 100%;
+      }
+    }
     &--image {
-      border-radius: 2rem;
+      border-radius: 1rem;
     }
   }
 }

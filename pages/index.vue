@@ -1,5 +1,6 @@
 <template>
   <main>
+    <h1>Conteúdo</h1>
     <ContentList :contents="contents" />
   </main>
 </template>
