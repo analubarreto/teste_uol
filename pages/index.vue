@@ -1,6 +1,5 @@
 <template>
-  <main class="page">
-    <h1 class="page__title">Cursos</h1>
+  <main>
     <ContentList :contents="contents" />
   </main>
 </template>
@@ -24,13 +23,4 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.page {
-  @include page-style;
-  &__title {
-    @include title;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-  }
-}
 </style>

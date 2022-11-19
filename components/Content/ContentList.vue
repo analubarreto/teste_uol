@@ -16,10 +16,11 @@ export default {
   },
   props: {
     contents: {
-      type: Object,
+      type: Array,
       default: () => {
+        // eslint-disable-next-line vue/require-valid-default-prop
         return {
-          content: {}
+          content: []
         }
       }
     }

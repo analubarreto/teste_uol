@@ -1,4 +1,4 @@
-query Contents($id: ID) {
+query Contents($id: String!) {
   getContent(id: $id) {
     id
     embeddable
