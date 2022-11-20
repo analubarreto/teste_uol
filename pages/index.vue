@@ -1,8 +1,11 @@
 <template>
-  <main>
-    <h1>Conteúdo</h1>
-    <ContentList :contents="contents" />
-  </main>
+  <div>
+    <LoadingComponent :is-showing="isContentLoading" />
+    <main id="main-content">
+      <h1>Conteúdo</h1>
+      <ContentList :contents="contents" />
+    </main>
+  </div>
 </template>
 
 <script>
@@ -14,10 +17,20 @@ export default {
   components: {
     ContentList
   },
+  data() {
+    return {
+      contents: []
+    }
+  },
   apollo: {
     contents: {
       prefetch: true,
       query: contentsQuery
+    }
+  },
+  computed: {
+    isContentLoading() {
+      return Object.keys(this.contents).length === 0;
     }
   }
 }

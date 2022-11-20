@@ -11,8 +11,8 @@ function factory() {
 }
 
 describe('TooltipIcon', () => {
-  test('is a Vue instance', () => {
+  test('is visible', () => {
     const wrapper = factory()
-    expect(wrapper.vm).toBeTruthy()
-  })
+    expect(wrapper.isVisible()).toBeTruthy()
+  });
 })

@@ -2,7 +2,7 @@
   <div>
     <LoadingComponent :is-showing="isContentLoading" />
     <main v-if="!isContentLoading" class="content-page">
-      <header class="content-page__header">
+      <header id="header" class="content-page__header">
         <h2>{{ getContent.title }}</h2>
         <el-row :gutter="20">
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
@@ -22,7 +22,7 @@
         </el-row>
         <el-divider></el-divider>
       </header>
-      <section class="content-page__content">
+      <section id="main-content" class="content-page__content">
         <!-- Video -->
         <iframe v-if="isVideoFile" class="content-page__content--video" src="https://www.youtube.com/embed/YBMq5c2ssY0/">
         </iframe>

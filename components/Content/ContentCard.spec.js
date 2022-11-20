@@ -13,7 +13,6 @@ describe('ContentCard', () => {
       replace: jest.fn()
     }
     const wrapper = mount(ContentCard, {
-      props: {},
       global: {
         plugins: [ElementUI],
         mocks: {
