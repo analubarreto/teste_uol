@@ -1,12 +1,13 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import { Tooltip } from 'element-ui';
+import { mount } from '@vue/test-utils';
 import TooltipIcon from './TooltipIcon.vue';
 
+function factory() {
+  return mount(TooltipIcon);
+}
+
 describe('TooltipIcon', () => {
-  const localVue = createLocalVue();
-  localVue.use(Tooltip);
   test('is a Vue instance', () => {
-    const wrapper = mount(TooltipIcon);
-    expect(wrapper.vm).toBeTruthy();
+    const wrapper = factory()
+    expect(wrapper.vm).toBeTruthy()
   })
 })

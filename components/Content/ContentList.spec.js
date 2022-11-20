@@ -1,12 +1,22 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import { Col } from 'element-ui';
+import { mount } from '@vue/test-utils';
 import ContentList from './ContentList.vue';
 
 describe('ContentList', () => {
-  const localVue = createLocalVue();
-  localVue.use(Col);
-  test('is a Vue instance', () => {
+  test('gets data from the api', () => {
     const wrapper = mount(ContentList);
-    expect(wrapper.vm).toBeTruthy();
+    wrapper.setData({
+      contents: [
+        {
+          id: 'some-id',
+          embeddable: true,
+          allow_download: false,
+          type: 'document',
+          updated_at: '1638383143749',
+          created_at: '1638383143749',
+          title: 'Some title',
+        }
+      ]
+    })
+    expect(wrapper.element).toMatchSnapshot()
   })
 })

@@ -1,13 +1,28 @@
-import { mount, createLocalVue } from '@vue/test-utils';
-import { Col } from 'element-ui';
+import { mount } from '@vue/test-utils';
 import ContentCard from './ContentCard.vue';
 
 describe('ContentCard', () => {
-  const localVue = createLocalVue();
-  localVue.use(Col);
-  test('is a Vue instance', () => {
-    const wrapper = mount(ContentCard);
-    expect(wrapper.vm).toBeTruthy();
+  test('goes to correct route after clicking', async () => {
+    const mockRoute = {
+      params: {
+        id: 1
+      }
+    }
+    const mockRouter = {
+      push: jest.fn()
+    }
+    const wrapper = mount(ContentCard, {
+      props: {},
+      global: {
+        mocks: {
+          $route: mockRoute,
+          $router: mockRouter
+        }
+      }
+    })
+    await wrapper.trigger('click');
+
+    expect(mockRouter.push).toHaveBeenCalledTimes(1);
+    expect(mockRouter.push).toHaveBeenCalledWith('/contents/1');
   })
 })
-
