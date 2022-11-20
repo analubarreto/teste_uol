@@ -1,5 +1,5 @@
 <template>
-  <main class="loading">
+  <main v-if="isShowing" class="loading">
     <p class="loading__text">Loading</p>
     <i class="el-icon-loading loading__icon"></i>
   </main>
@@ -7,7 +7,13 @@
 
 <script>
 export default {
-  name: 'LoadingComponent'
+  name: 'LoadingComponent',
+  props: {
+    isShowing: {
+      type: Boolean,
+      default: true
+    }
+  }
 }
 </script>
 

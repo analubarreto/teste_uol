@@ -9,7 +9,7 @@ export default {
   name: 'TooltipIcon',
   props: {
     content: {
-      type: Object,
+      type: Object || Array,
       default: () => {
         return {
           content: {}

@@ -1,8 +1,13 @@
 import { mount } from '@vue/test-utils';
+import ElementUI from 'element-ui';
 import TooltipIcon from './TooltipIcon.vue';
 
 function factory() {
-  return mount(TooltipIcon);
+  return mount(TooltipIcon, {
+    global: {
+      plugins: [ElementUI],
+    }
+  });
 }
 
 describe('TooltipIcon', () => {

@@ -7,8 +7,8 @@
 </template>
 
 <script>
-// import gql from 'graphql-tag';
 import ContentCard from './ContentCard.vue';
+
 export default {
   name: 'ContentList',
   components: {
