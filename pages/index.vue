@@ -11,7 +11,7 @@ import ContentList from '~/components/Content/ContentList.vue';
 
 export default {
   name: 'IndexPage',
-  comments: {
+  components: {
     ContentList
   },
   apollo: {

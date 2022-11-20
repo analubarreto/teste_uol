@@ -9,11 +9,10 @@ export default {
   name: 'TooltipIcon',
   props: {
     content: {
-      type: Array,
+      type: Object,
       default: () => {
-        // eslint-disable-next-line vue/require-valid-default-prop
         return {
-          content: []
+          content: {}
         }
       },
       required: false

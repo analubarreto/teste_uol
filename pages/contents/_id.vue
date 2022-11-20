@@ -106,6 +106,9 @@ export default {
     isTextFile() {
       return this.getContent.type === 'text'
     },
+    contentIsLoaded() {
+      return Object.keys(this.getContent).length === 0;
+    }
   },
   methods: {
     successDownload() {

@@ -1,10 +1,10 @@
-import { mount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 import ContentList from './ContentList.vue';
 
 describe('ContentList', () => {
-  test('gets data from the api', () => {
-    const wrapper = mount(ContentList);
-    wrapper.setData({
+  test('gets data from the api', async () => {
+    const wrapper = shallowMount(ContentList);
+    await wrapper.setData({
       contents: [
         {
           id: 'some-id',
@@ -18,5 +18,5 @@ describe('ContentList', () => {
       ]
     })
     expect(wrapper.element).toMatchSnapshot()
-  })
+  });
 })
