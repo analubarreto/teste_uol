@@ -2,37 +2,9 @@
   <div>
     <LoadingComponent :is-showing="isContentLoading" />
     <main v-if="!isContentLoading" class="content-page">
-      <PageHeader :content="getContent" />
+      <ContentPageHeader :content="getContent" />
       <section id="main-content" class="content-page__content">
-        <!-- Video -->
-        <iframe v-if="isVideoFile" class="content-page__content--video" src="https://www.youtube.com/embed/YBMq5c2ssY0/">
-        </iframe>
-        <!-- Image -->
-        <el-image
-          v-if="!isVideoFile && !isDocumentFile"
-          class="content-page__content--image"
-          :src="pageImage"
-          :alt="getContent.title"
-          fit="fill"></el-image>
-        <!-- Link -->
-        <p v-if="isLinkFile">Link para arquivo:
-          <a class="content-page__content--link" href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm" target="_blank">Lei da LGPD</a>
-        </p>
-        <!-- Document -->
-        <iframe
-          v-if="isDocumentFile"
-          src="https://docs.google.com/presentation/d/e/2PACX-1vS7Aa591Nt-v8cnxAf8yTda0XdR2RgM-LZ7koWGVInK1hVNRQx4m2dMNg5eTvn6FVsPgHG4XyWZ0TNr/embed?start=false&loop=false&delayms=3000"
-          class="content-page__content--document"
-          frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true"
-          webkitallowfullscreen="true"></iframe>
-        <!-- Text -->
-        <div v-if="isTextFile" class="content-page__content--text-wrap">
-          <p class="content-page__content--text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Elementum pulvinar etiam non quam. Vitae sapien pellentesque habitant morbi tristique senectus et. Hac habitasse platea dictumst quisque. Quam viverra orci sagittis eu volutpat odio. Eu feugiat pretium nibh ipsum consequat nisl vel.
-
-              Neque volutpat ac tincidunt vitae. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Placerat vestibulum lectus mauris ultrices eros. Eu volutpat odio facilisis mauris sit amet massa vitae tortor. Elit at imperdiet dui accumsan sit amet nulla facilisi morbi. Enim nec dui nunc mattis enim ut tellus. Nec ullamcorper sit amet risus nullam eget felis eget nunc. Ultrices neque ornare aenean euismod elementum nisi. Elementum curabitur vitae nunc sed. Non enim praesent elementum facilisis leo vel. Aenean et tortor at risus viverra adipiscing at in tellus.
-          </p>
-        </div>
+        <SingleContent :content="getContent" />
       </section>
     </main>
   </div>
@@ -40,15 +12,16 @@
 
 <script>
 import contentsQuery from '~/apollo/queries/content/content.gql';
-import formatDate from '~/helpers/date-helpers/formatDate.js';
 import LoadingComponent from '~/components/Layout/LoadingComponent.vue';
-import PageHeader from '~/components/Layout/PageHeader.vue';
+import ContentPageHeader from '~/components/Content/ContentPageHeader.vue';
+import SingleContent from '~/components/Content/SingleContent.vue';
 
 export default {
   Name: 'SingleContentPage',
   components: {
     LoadingComponent,
-    PageHeader
+    ContentPageHeader,
+    SingleContent
   },
   data() {
     return {
@@ -65,52 +38,8 @@ export default {
     }
   },
   computed: {
-    createdAt() {
-      return formatDate(this.getContent.created_at);
-    },
-    updatedAt() {
-      return formatDate(this.getContent.updated_at);
-    },
-    pageImage() {
-      return this.getContent.type === 'image' ? 'https://picsum.photos/1024/1024' : 'https://picsum.photos/1024/342'
-    },
-    downloadButtonDisabled() {
-      return this.getContent.allow_download
-    },
-    embedButtonDisabled() {
-      return this.getContent.embeddable
-    },
-    isVideoFile() {
-      return this.getContent.type === 'video'
-    },
-    isLinkFile() {
-      return this.getContent.type === 'link'
-    },
-    isDocumentFile() {
-      return this.getContent.type === 'document'
-    },
-    isTextFile() {
-      return this.getContent.type === 'text'
-    },
-    contentIsLoaded() {
-      return Object.keys(this.getContent).length === 0;
-    },
     isContentLoading() {
       return Object.keys(this.getContent).length === 0;
-    }
-  },
-  methods: {
-    successDownload() {
-      this.$message({
-        message: 'Download feito com sucesso!',
-        type: 'success'
-      });
-    },
-    successCopy() {
-      this.$message({
-        message: 'Link copiado com sucesso!',
-        type: 'success'
-      });
     }
   }
 }

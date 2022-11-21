@@ -1,7 +1,5 @@
 <template>
   <header id="header" class="content-page__header">
-    <el-page-header @back="goBack">
-    </el-page-header>
     <h2>{{ content.title }}</h2>
     <el-row :gutter="20">
       <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
@@ -63,9 +61,6 @@ export default {
         message: 'Link copiado com sucesso!',
         type: 'success'
       });
-    },
-    goBack() {
-      this.$router.back();
     }
   }
 }

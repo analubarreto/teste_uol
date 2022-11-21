@@ -1,6 +1,6 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import ElementUI from 'element-ui';
-import PageHeader from './PageHeader.vue';
+import PageHeader from './ContentPageHeader.vue';
 
 const localVue = createLocalVue();
 localVue.use(ElementUI);

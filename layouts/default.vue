@@ -1,5 +1,6 @@
 <template>
   <div class="page-wrapper">
+    <LayoutHeader :route-name="routeName" />
     <div class="page">
       <Nuxt />
     </div>
@@ -7,8 +8,18 @@
 </template>
 
 <script>
+import LayoutHeader from '~/components/Layout/LayoutHeader.vue';
+
 export default {
-  name: 'DefaultLayout'
+  name: 'DefaultLayout',
+  components: {
+    LayoutHeader
+  },
+  computed: {
+    routeName() {
+      return this.$route.name;
+    }
+  },
 }
 </script>
 
