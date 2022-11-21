@@ -2,26 +2,7 @@
   <div>
     <LoadingComponent :is-showing="isContentLoading" />
     <main v-if="!isContentLoading" class="content-page">
-      <header id="header" class="content-page__header">
-        <h2>{{ getContent.title }}</h2>
-        <el-row :gutter="20">
-          <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-            <el-row :gutter="20">
-              <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-                <p>Conteúdo criado em: {{ createdAt }}</p>
-              </el-col>
-              <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-                <p>Última atualização: {{ updatedAt }}</p>
-              </el-col>
-            </el-row>
-          </el-col>
-          <el-col v-if="!isLinkFile" :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-            <el-button icon="el-icon-download" :disabled="downloadButtonDisabled" type="primary" @click="successDownload">Download</el-button>
-            <el-button type="primary" icon="el-icon-link" :disabled="embedButtonDisabled" @click="successCopy">Embed</el-button>
-          </el-col>
-        </el-row>
-        <el-divider></el-divider>
-      </header>
+      <PageHeader :content="getContent" />
       <section id="main-content" class="content-page__content">
         <!-- Video -->
         <iframe v-if="isVideoFile" class="content-page__content--video" src="https://www.youtube.com/embed/YBMq5c2ssY0/">
@@ -61,11 +42,13 @@
 import contentsQuery from '~/apollo/queries/content/content.gql';
 import formatDate from '~/helpers/date-helpers/formatDate.js';
 import LoadingComponent from '~/components/Layout/LoadingComponent.vue';
+import PageHeader from '~/components/Layout/PageHeader.vue';
 
 export default {
   Name: 'SingleContentPage',
   components: {
-    LoadingComponent
+    LoadingComponent,
+    PageHeader
   },
   data() {
     return {

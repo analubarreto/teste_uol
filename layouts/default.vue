@@ -1,6 +1,5 @@
 <template>
   <div class="page-wrapper">
-    <PageHeader v-if="routeName !== 'index'" />
     <div class="page">
       <Nuxt />
     </div>
@@ -8,18 +7,8 @@
 </template>
 
 <script>
-import PageHeader from '~/components/Layout/PageHeader.vue';
-
 export default {
-  name: 'DefaultLayout',
-  components: {
-    PageHeader
-  },
-  computed: {
-    routeName() {
-      return this.$route.name;
-    }
-  },
+  name: 'DefaultLayout'
 }
 </script>
 

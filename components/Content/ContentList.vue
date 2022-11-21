@@ -16,11 +16,9 @@ export default {
   },
   props: {
     contents: {
-      type: Object,
+      type: Array,
       default: () => {
-        return {
-          content: {}
-        }
+        return []
       }
     }
   }

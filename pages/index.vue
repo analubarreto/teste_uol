@@ -11,11 +11,13 @@
 <script>
 import contentsQuery from '~/apollo/queries/content/contents.gql'
 import ContentList from '~/components/Content/ContentList.vue';
+import LoadingComponent from '~/components/Layout/LoadingComponent.vue';
 
 export default {
   name: 'IndexPage',
   components: {
-    ContentList
+    ContentList,
+    LoadingComponent
   },
   data() {
     return {
