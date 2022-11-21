@@ -1,15 +1,15 @@
 <template>
-  <NuxtLink class="card-wrap" :to="`/contents/${content.id}`">
-    <main class="content-card">
+  <main class="content-card">
+    <NuxtLink class="card-wrap" :to="`/contents/${content.id}`">
       <div class="content-card__image-overlay">
         <i v-if="content.type === 'video'" class="el-icon-video-play content-card__image-overlay--icon"></i>
       </div>
       <img class="content-card__image" src="https://picsum.photos/300/100" alt="" />
       <section class="content-card__info">
-        <p class="content-card__info--title">{{ cardTitle }}</p>
+        <p id="title" class="content-card__info--title">{{ cardTitle }}</p>
         <div class="content-card__info--dates">
-          <p>{{ createdAt }}</p>
-          <p>{{ updatedAt }}</p>
+          <p id="created-at">Criado: {{ createdAt }}</p>
+          <p id="updated-at">Último update: {{ updatedAt }}</p>
         </div>
         <div class="content-card__info--extra">
           <CardIcon
@@ -22,8 +22,8 @@
           />
         </div>
       </section>
-    </main>
-  </NuxtLink>
+    </NuxtLink>
+  </main>
 </template>
 
 <script>
@@ -89,7 +89,7 @@ export default {
       return formatDate(this.content.created_at);
     },
     updatedAt() {
-      return formatDate(this.content.updated_at);
+      return this.content.updated_at ? formatDate(this.content.updated_at) : 'não houve'
     }
   },
 }
@@ -148,6 +148,8 @@ export default {
       display: flex;
       justify-content: space-between;
       margin-top: 1rem;
+      font-size: .75rem;
+
     }
   }
 }

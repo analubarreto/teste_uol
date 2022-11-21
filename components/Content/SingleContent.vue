@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Video -->
-    <iframe v-if="isVideoFile" id="video" class="video" src="https://www.youtube.com/embed/YBMq5c2ssY0/">
+    <iframe v-if="isVideoFile" data-test="video" class="video" src="https://www.youtube.com/embed/YBMq5c2ssY0/">
     </iframe>
     <!-- Image -->
     <el-image
@@ -28,7 +28,7 @@
       class="document" frameborder="0" width="960" height="569" allowfullscreen="true"
       mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
     <!-- Text -->
-    <div v-if="isTextFile" id="text" class="content-page__content--text-wrap">
+    <div v-if="isTextFile" id="text" class="text">
       <p class="content-page__content--text">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
         aliqua. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis aliquam. Elementum pulvinar etiam
@@ -110,5 +110,10 @@ export default {
 }
 .document {
   @extend .video;
+}
+.text {
+  display: block;
+  font-family: $defaultFont;
+  white-space: pre-line;
 }
 </style>
