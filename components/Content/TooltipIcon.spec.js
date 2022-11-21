@@ -1,18 +1,12 @@
-import { mount } from '@vue/test-utils';
+import { mount, createLocalVue } from '@vue/test-utils';
 import ElementUI from 'element-ui';
 import TooltipIcon from './TooltipIcon.vue';
 
-function factory() {
-  return mount(TooltipIcon, {
-    global: {
-      plugins: [ElementUI],
-    }
-  });
-}
-
 describe('TooltipIcon', () => {
+  const localVue = createLocalVue();
+  localVue.use(ElementUI);
   test('is visible', () => {
-    const wrapper = factory()
+    const wrapper = mount(TooltipIcon, { localVue });
     expect(wrapper.isVisible()).toBeTruthy()
   });
 })

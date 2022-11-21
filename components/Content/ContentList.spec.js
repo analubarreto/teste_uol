@@ -1,9 +1,12 @@
-import { shallowMount } from '@vue/test-utils';
+import { shallowMount, createLocalVue } from '@vue/test-utils';
+import ElementUI from 'element-ui';
 import ContentList from './ContentList.vue';
 
 describe('ContentList', () => {
+  const localVue = createLocalVue();
+  localVue.use(ElementUI);
   test('gets data from the api', async () => {
-    const wrapper = shallowMount(ContentList);
+    const wrapper = shallowMount(ContentList, { localVue });
     await wrapper.setData({
       contents: [
         {

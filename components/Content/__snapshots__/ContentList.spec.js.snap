@@ -1,20 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ContentList gets data from the api 1`] = `
-<el-row
+<el-row-stub
   gutter="10"
+  justify="start"
+  tag="div"
 >
-  <el-col
+  <el-col-stub
     class="col"
     lg="6"
     md="8"
     sm="12"
+    span="24"
+    tag="div"
     xl="6"
     xs="24"
   >
     <contentcard-stub
       content="[object Object]"
     />
-  </el-col>
-</el-row>
+  </el-col-stub>
+</el-row-stub>
 `;
