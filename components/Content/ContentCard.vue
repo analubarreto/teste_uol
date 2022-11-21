@@ -107,6 +107,7 @@ export default {
   position: relative;
   &__image {
     border-radius: 1rem;
+    box-shadow: $default-shadow;
   }
   &__image-overlay {
     border-radius: 1rem;
@@ -133,7 +134,7 @@ export default {
     width: 17.5rem;
     margin-right: auto;
     margin-left: auto;
-
+    box-shadow: $default-shadow;
     &--extra {
       display: flex;
       justify-content: space-between;
