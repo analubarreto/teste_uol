@@ -6,29 +6,25 @@ describe('ContentCard', () => {
   const localVue = createLocalVue();
   localVue.use(ElementUI);
   test('goes to correct route after clicking', async () => {
-    const mockRoute = {
+    const $route = {
       params: {
         id: 1
       }
     }
-    const mockRouter = {
+    const $router = {
       replace: jest.fn()
     }
     const wrapper = mount(ContentCard, { localVue }, {
-     stubs: {
-      'nuxt-link': true,
-      'any-other-child': true
-     },
       global: {
         mocks: {
-          $route: mockRoute,
-          $router: mockRouter
+          $route,
+          $router
         }
       }
     })
     await wrapper.trigger('click');
 
-    expect(mockRouter.replace).toHaveBeenCalledTimes(1);
-    expect(mockRouter.replace).toHaveBeenCalledWith('/contents/1');
+    expect($router.replace).toHaveBeenCalledTimes(1);
+    expect($router.replace).toHaveBeenCalledWith('/contents/1');
   })
 })
