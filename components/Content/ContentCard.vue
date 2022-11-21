@@ -1,6 +1,6 @@
 <template>
   <main class="content-card">
-    <NuxtLink class="card-wrap" :to="`/contents/${content.id}`">
+    <button class="card-wrap" @click="redirect">
       <div class="content-card__image-overlay">
         <i v-if="content.type === 'video'" class="el-icon-video-play content-card__image-overlay--icon"></i>
       </div>
@@ -22,7 +22,7 @@
           />
         </div>
       </section>
-    </NuxtLink>
+    </button>
   </main>
 </template>
 
@@ -92,6 +92,11 @@ export default {
       return this.content.updated_at ? formatDate(this.content.updated_at) : 'não houve'
     }
   },
+  methods: {
+    redirect() {
+      this.$router.push({ name: '/contents', params: this.content.id })
+    }
+  }
 }
 </script>
 
